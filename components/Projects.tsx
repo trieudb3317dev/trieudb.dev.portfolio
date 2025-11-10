@@ -8,7 +8,7 @@ const projects = [
     title: 'Food booting Project',
     category: 'Featured Project - Ecommerce',
     description:
-      'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio analysis for each track. Get recommendations for new tracks based on your existing playlists and more.',
+      'A web app for ordering food online with a user-friendly interface. Browse menus, customize orders, and track deliveries in real-time.',
     image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png',
     tags: ['React', 'Tailwind', 'Node.js', 'MongoDB'],
     links: {
@@ -20,7 +20,7 @@ const projects = [
     title: 'Searching system Project',
     category: 'Featured Project - Web App',
     description:
-      'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio analysis for each track.',
+      'A web app for searching and managing job listings. Users can search for jobs, apply filters, and view detailed job descriptions.',
     image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762782128/avatars/aaa3b5fc-9720-4539-aa3f-a93ce7d40684.png',
     tags: ['Next.js', 'Nest.js', 'TypeScript', 'PostgreSQL'],
     links: {
