@@ -5,29 +5,41 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: 'Example Project',
-    category: 'Featured Project',
+    title: 'Food booting Project',
+    category: 'Featured Project - Ecommerce',
     description:
       'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio analysis for each track. Get recommendations for new tracks based on your existing playlists and more.',
-    image: '📊',
-    tags: ['React', 'Tailwind', 'Node.js'],
+    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png',
+    tags: ['React', 'Tailwind', 'Node.js', 'MongoDB'],
     links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example',
+      live: 'https://final-tester-frontend.vercel.app',
+      github: 'https://github.com/TrieuDang93710/final-tester-frontend.git',
     },
   },
   {
-    title: 'Example Project',
-    category: 'Featured Project',
+    title: 'Searching system Project',
+    category: 'Featured Project - Web App',
     description:
       'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio analysis for each track.',
-    image: '🎵',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
+    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762782128/avatars/aaa3b5fc-9720-4539-aa3f-a93ce7d40684.png',
+    tags: ['Next.js', 'Nest.js', 'TypeScript', 'PostgreSQL'],
     links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example',
+      live: 'https://jobs-searching-system.vercel.app',
+      github: 'https://github.com/TrieuDang93710/room-manager-system.git',
     },
   },
+  // {
+  //   title: 'Chat app Project',
+  //   category: 'Featured Project - Mobile App',
+  //   description:
+  //     'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio analysis for each track. Get recommendations for new tracks based on your existing playlists and more.',
+  //   image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png',
+  //   tags: ['Flutter', 'Dart', 'Nest.js', 'PostgreSQL', 'Socket.IO'],
+  //   links: {
+  //     live: 'https://final-tester-frontend.vercel.app',
+  //     github: 'https://github.com/TrieuDang93710/final-tester-frontend.git',
+  //   },
+  // },
 ];
 
 export function Projects() {
@@ -48,8 +60,14 @@ export function Projects() {
               {/* Image */}
               <div className={index % 2 === 1 ? 'md:order-2' : ''}>
                 <div className="bg-white dark:bg-slate-700 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
-                  <div className="w-full aspect-video bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-6xl">
-                    {project.image}
+                  <div
+                    style={{
+                      backgroundImage: `url(${project.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
+                    className="w-full aspect-video bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-6xl">
                   </div>
                 </div>
               </div>

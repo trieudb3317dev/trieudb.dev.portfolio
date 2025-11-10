@@ -2,6 +2,7 @@
 
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { FAQItem } from './FAQItem';
 
 interface FAQItem {
   id: number;
@@ -63,33 +64,41 @@ export function FAQ() {
 
         <div className="space-y-4">
           {faqItems.map((item, index) => (
-            <div
+            <FAQItem
               key={item.id}
-              className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden animate-fadeInUp"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <button
-                onClick={() => toggleOpen(item.id)}
-                className="w-full px-6 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-left"
-              >
-                <span className="text-lg font-semibold text-slate-900 dark:text-white">
-                  {item.question}
-                </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300 flex-shrink-0 ${
-                    openId === item.id ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+              question={item.question}
+              answer={item.answer}
+              isOpen={openId === item.id}
+              onToggle={() => toggleOpen(item.id)}
+              index={index}
+            />
+            // <div
+            //   key={item.id}
+            //   className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden animate-fadeInUp"
+            //   style={{ animationDelay: `${index * 50}ms` }}
+            // >
+            //   <button
+            //     onClick={() => toggleOpen(item.id)}
+            //     className="w-full px-6 py-4 flex items-center justify-between bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-left"
+            //   >
+            //     <span className="text-lg font-semibold text-slate-900 dark:text-white">
+            //       {item.question}
+            //     </span>
+            //     <ChevronDown
+            //       className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300 flex-shrink-0 ${
+            //         openId === item.id ? 'rotate-180' : ''
+            //       }`}
+            //     />
+            //   </button>
 
-              {openId === item.id && (
-                <div className="px-6 py-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {item.answer}
-                  </p>
-                </div>
-              )}
-            </div>
+            //   {openId === item.id && (
+            //     <div className="px-6 py-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+            //       <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+            //         {item.answer}
+            //       </p>
+            //     </div>
+            //   )}
+            // </div>
           ))}
         </div>
 

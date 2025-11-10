@@ -20,7 +20,7 @@ export function Contact() {
           </p>
 
           <a
-            href="mailto:trieudb.wensam@gmail.com"
+            href="mailto:trieudb3317.dev@gmail.com"
             className="inline-flex items-center gap-3 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold transition-all hover:shadow-lg hover:shadow-emerald-600/50"
           >
             <Mail className="w-5 h-5" />

@@ -7,6 +7,8 @@ import { useState } from 'react';
 export function Hero() {
   const [more, setMore] = useState<boolean>(false);
 
+  const avatar = 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762782546/avatars/80449dac-45f5-438b-be61-f4fc2fce9c1d.jpg';
+
   const toggleMore = () => {
     setMore(!more);
   }
@@ -53,8 +55,15 @@ export function Hero() {
             <div className="relative w-full max-w-sm">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl blur-2xl opacity-20"></div>
               <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl p-8 shadow-2xl">
-                <div className="bg-slate-200 dark:bg-slate-700 rounded-2xl w-full aspect-square flex items-center justify-center">
-                  <span className="text-slate-400 dark:text-slate-500">Your Avatar Here</span>
+                <div 
+                style={{
+                  backgroundImage: `url(${avatar})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+                className="bg-slate-200 dark:bg-slate-700 rounded-2xl w-full aspect-square flex items-center justify-center">
+                  {/* <span className="text-slate-400 dark:text-slate-500">Your Avatar Here</span> */}
                 </div>
               </div>
             </div>

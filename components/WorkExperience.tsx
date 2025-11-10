@@ -4,29 +4,29 @@ import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'CIB on the Mobile',
-    description: 'Mobile banking application with advanced features',
+    title: 'Flutter mobile chat application',
+    description: 'Mobile chat application with advanced features: real-time messaging, push notifications, and user authentication',
     icon: '📱',
-    tags: ['React Native', 'TypeScript', 'Firebase'],
+    tags: ['Flutter', 'Dart', 'Firebase', 'Socket.IO', 'PostgreSQL', 'Nest.js'],
   },
   {
-    title: 'CIB on the Mobile',
-    description: 'Enhanced user experience and performance optimization',
+    title: 'Web Application Development',
+    description: 'Some application development with a focus on user experience and performance optimization: building responsive and interactive web applications using modern frameworks.',
     icon: '🚀',
-    tags: ['Next.js', 'Tailwind CSS', 'Node.js'],
+    tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Nest.js', 'PostgreSQL', 'MongoDB'],
   },
-  {
-    title: 'CIB on the Mobile',
-    description: 'Cross-platform mobile solution',
-    icon: '⚡',
-    tags: ['Flutter', 'Dart', 'Firebase'],
-  },
-  {
-    title: 'CIB on the Mobile',
-    description: 'Real-time data synchronization platform',
-    icon: '🔄',
-    tags: ['WebSocket', 'Redis', 'PostgreSQL'],
-  },
+  // {
+  //   title: 'Team work',
+  //   description: '',
+  //   icon: '⚡',
+  //   tags: ['Flutter', 'Dart', 'Firebase'],
+  // },
+  // {
+  //   title: 'CIB on the Mobile',
+  //   description: 'Real-time data synchronization platform',
+  //   icon: '🔄',
+  //   tags: ['WebSocket', 'Redis', 'PostgreSQL'],
+  // },
 ];
 
 export function WorkExperience() {
