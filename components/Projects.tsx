@@ -1,7 +1,8 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const projects = [
   {
@@ -11,6 +12,12 @@ const projects = [
       'A web app for ordering food online with a user-friendly interface. Browse menus, customize orders, and track deliveries in real-time.',
     image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png',
     tags: ['React', 'Tailwind', 'Node.js', 'MongoDB'],
+    qa: [
+      { q: 'Role', a: 'Frontend & integration' },
+      { q: 'Duration', a: '6 weeks' },
+      { q: 'Tech', a: 'React, Tailwind, Node.js, MongoDB' },
+      { q: 'Note', a: 'Currently, registered and logged in is only available for users role. Admin account: superadmin@gmail.com / Password: 123456 to access admin features.' },
+    ],
     links: {
       live: 'https://final-tester-frontend.vercel.app',
       github: 'https://github.com/TrieuDang93710/final-tester-frontend.git',
@@ -23,6 +30,11 @@ const projects = [
       'A web app for searching and managing job listings. Users can search for jobs, apply filters, and view detailed job descriptions.',
     image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762782128/avatars/aaa3b5fc-9720-4539-aa3f-a93ce7d40684.png',
     tags: ['Next.js', 'Nest.js', 'TypeScript', 'PostgreSQL'],
+    qa: [
+      { q: 'Role', a: 'Full-stack developer' },
+      { q: 'Duration', a: '8 weeks' },
+      { q: 'Tech', a: 'Next.js, Nest.js, TypeScript, PostgreSQL' },
+    ],
     links: {
       live: 'https://jobs-searching-system.vercel.app',
       github: 'https://github.com/TrieuDang93710/room-manager-system.git',
@@ -43,6 +55,15 @@ const projects = [
 ];
 
 export function Projects() {
+  const [openMap, setOpenMap] = useState<Record<number, number | null>>({});
+
+  const toggleQA = (projectIndex: number, qaIndex: number) => {
+    setOpenMap((prev) => {
+      const current = prev[projectIndex] ?? null;
+      return { ...prev, [projectIndex]: current === qaIndex ? null : qaIndex };
+    });
+  };
+
   return (
     <section id="projects" className="py-20 bg-slate-100 dark:bg-slate-800/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,6 +104,45 @@ export function Projects() {
                 <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                   {project.description}
                 </p>
+
+                {/* QA block as accordion */}
+                {project.qa && (
+                  <div className="space-y-3 mb-6">
+                    {project.qa.map((item, i) => {
+                      const isOpen = openMap[index] === i;
+                      return (
+                        <div
+                          key={i}
+                          className="border border-slate-200 dark:border-slate-700 rounded-md overflow-hidden"
+                        >
+                          <button
+                            onClick={() => toggleQA(index, i)}
+                            className="w-full px-4 py-3 flex items-center justify-between text-left bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                            aria-expanded={isOpen}
+                          >
+                            <div>
+                              <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                                {item.q}
+                              </p>
+                            </div>
+                            <ChevronDown
+                              className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
+                                }`}
+                            />
+                          </button>
+
+                          {isOpen && (
+                            <div className="px-4 py-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+                              <p className="text-sm text-slate-600 dark:text-slate-400">
+                                {item.a}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
