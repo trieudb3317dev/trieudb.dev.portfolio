@@ -102,6 +102,101 @@ body {
   }
 }
 
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-slow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* apply to wrapper that contains absolutely positioned icons */
+.orbit-rotate {
+  animation: orbit 18s linear infinite;
+  transform-origin: center center;
+}
+
+/* pause when needed */
+.orbit-rotate.paused {
+  animation-play-state: paused;
+}
+
+/* subtle floating for each badge (gives organic movement) */
+.skill-badge {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* slight randomization of animation-phase per badge (via inline style in component is preferable) */
+
+/* center orb glow */
+.center-orb {
+  box-shadow: 0 30px 80px rgba(124,58,237,0.14), inset 0 10px 30px rgba(255,255,255,0.04);
+}
+
+/* badge visuals */
+.skill-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* hover/pop */
+.skill-icon:hover {
+  transform: scale(1.12);
+  box-shadow: 0 18px 45px rgba(124,58,237,0.18);
+}
+
+/* decorative rings (SVG strokes color) */
+.skills-svg circle {
+  stroke: rgba(255,255,255,0.02);
+  stroke-width: 1.2;
+}
+
+/* connectors / top icons styling (more visible) */
+.connector-path {
+  stroke: rgba(124,58,237,0.5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 6px 16px rgba(124,58,237,0.08));
+  opacity: 0.95;
+}
+
+/* ensure section doesn't clip top arcs */
+.section-skills-bg {
+  background: radial-gradient(1200px 600px at 50% 40%, rgba(124,58,237,0.06), transparent 20%), #0b0711;
+  overflow: visible;
+}
+
+/* top icons button (bigger and visible) */
+.absolute > .w-10.h-10 {
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.03);
+}
+
+/* top icons always visible */
+.top-icon {
+  z-index: 60; /* ensure above rotating element */
+  will-change: transform;
+  transform: translateZ(0); /* promote to its own layer / stacking context */
+  pointer-events: auto;
+}
+
 .animate-fadeInUp {
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;

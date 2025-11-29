@@ -40,18 +40,18 @@ const projects = [
       github: 'https://github.com/TrieuDang93710/room-manager-system.git',
     },
   },
-  // {
-  //   title: 'Chat app Project',
-  //   category: 'Featured Project - Mobile App',
-  //   description:
-  //     'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio analysis for each track. Get recommendations for new tracks based on your existing playlists and more.',
-  //   image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png',
-  //   tags: ['Flutter', 'Dart', 'Nest.js', 'PostgreSQL', 'Socket.IO'],
-  //   links: {
-  //     live: 'https://final-tester-frontend.vercel.app',
-  //     github: 'https://github.com/TrieuDang93710/final-tester-frontend.git',
-  //   },
-  // },
+  {
+    title: 'Ecommerce Project',
+    category: 'Featured Project - Web App',
+    description:
+      'A mobile eCommerce app that offers a seamless shopping experience. Browse products, add to cart, and checkout with ease.',
+    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1764422837/my_images/vwigujqjoc1dp5zmaqvx.png',
+    tags: ['ReactJs', 'Node.js', 'MongoDB', 'Docker'],
+    links: {
+      live: 'https://problem5-v1-0-0-1.onrender.com',
+      github: 'https://github.com/trieudb3317dev/DANGBINHTRIEU/tree/main/problem_5',
+    },
+  },
 ];
 
 export function Projects() {

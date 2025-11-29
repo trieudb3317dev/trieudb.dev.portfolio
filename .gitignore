@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/public/icons/
 /.pnp
 .pnp.*
 .yarn/*

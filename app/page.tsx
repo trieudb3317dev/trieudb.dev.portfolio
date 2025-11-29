@@ -8,12 +8,14 @@ import { Projects } from '@/components/Projects';
 import { FAQ } from '@/components/FAQ';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import { Skills } from '@/components/Skills';
 
 export default function Home() {
   return (
     <main>
       <Header />
       <Hero />
+      {/* <Skills /> */}
       <About />
       <WorkExperience />
       <Projects />
