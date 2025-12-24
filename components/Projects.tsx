@@ -5,6 +5,23 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const projects = [
+    {
+    title: 'Recipe Sharing Platform',
+    category: 'Featured Project - Recipe Sharing',
+    description:
+      'A web app that allows users to share and discover recipes. Users can create profiles, upload recipes with images, and interact with other food enthusiasts through comments and ratings.',
+    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1766568098/my_images/plr3djhee6z1b9ndclla.png',
+    tags: ['Next.js', 'Tailwind', 'Nest.js', 'PostgreSQL', 'Python', 'Model AI'],
+    qa: [
+      { q: 'Role', a: 'Full-stack developer' },
+      { q: 'Duration', a: '4 weeks' },
+      { q: 'Tech', a: 'Next.js, Tailwind, Nest.js, PostgreSQL, Python, Model AI' },
+    ],
+    links: {
+      live: 'https://sign-in-up-psi.vercel.app',
+      github: 'https://github.com/trieudb3317dev/sign-in-up.git',
+    },
+  },
   {
     title: 'Food booting Project',
     category: 'Featured Project - Ecommerce',
