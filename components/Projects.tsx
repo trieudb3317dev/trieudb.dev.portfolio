@@ -1,78 +1,106 @@
-'use client';
+"use client";
 
-import { ExternalLink, Github, ChevronDown } from 'lucide-react';
-import Image from 'next/image';
-import { useState } from 'react';
+import { q } from "framer-motion/client";
+import { ExternalLink, Github, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 const projects = [
-    {
-    title: 'Recipe Sharing Platform',
-    category: 'Featured Project - Recipe Sharing',
+  {
+    title: "Recipe Sharing Platform",
+    category: "Featured Project - Recipe Sharing",
     description:
-      'A web app that allows users to share and discover recipes. Users can create profiles, upload recipes with images, and interact with other food enthusiasts through comments and ratings.',
-    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1766568098/my_images/plr3djhee6z1b9ndclla.png',
-    tags: ['Next.js', 'Tailwind', 'Nest.js', 'PostgreSQL', 'Python', 'Model AI'],
+      "A web app that allows users to share and discover recipes. Users can create profiles, upload recipes with images, and interact with other food enthusiasts through comments and ratings.",
+    image:
+      "https://res.cloudinary.com/dmdzyoslx/image/upload/v1766568098/my_images/plr3djhee6z1b9ndclla.png",
+    tags: [
+      "Next.js",
+      "Tailwind",
+      "Nest.js",
+      "PostgreSQL",
+      "Python",
+      "Model AI",
+    ],
     qa: [
-      { q: 'Role', a: 'Full-stack developer' },
-      { q: 'Duration', a: '4 weeks' },
-      { q: 'Tech', a: 'Next.js, Tailwind, Nest.js, PostgreSQL, Python, Model AI' },
+      { q: "Role", a: "Full-stack developer" },
+      { q: "Duration", a: "4 weeks" },
+      {
+        q: "Tech",
+        a: "Next.js, Tailwind, Nest.js, PostgreSQL, Python, Model AI",
+      },
+      {
+        q: "Description",
+        a: "This project includes two main features: User Authentication System and Recipe Sharing Platform. Users can sign up, log in, and manage their profiles. They can also upload recipes with images, view others' recipes, and interact through comments and ratings. Admin users have additional privileges to manage content and users. Spencially, the project integrates AI models to enhance user experience by providing personalized recipe recommendations and image recognition for recipe uploads.",
+      },
+      {
+        q: "Note",
+        a: "Currently, registered and logged in is only available for users role and admin or editor role. Super Admin account: trieudb3317.dev / Password: 123456 to access super admin features.",
+      }
     ],
     links: {
-      live: 'https://sign-in-up-psi.vercel.app',
-      github: 'https://github.com/trieudb3317dev/sign-in-up.git',
+      live: "https://sign-in-up-psi.vercel.app,https://instruction-sharing-recipes.up.railway.app",
+      github: "https://github.com/trieudb3317dev/sign-in-up.git",
     },
   },
   {
-    title: 'Food booting Project',
-    category: 'Featured Project - Ecommerce',
+    title: "Food booting Project",
+    category: "Featured Project - Ecommerce",
     description:
-      'A web app for ordering food online with a user-friendly interface. Browse menus, customize orders, and track deliveries in real-time.',
-    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png',
-    tags: ['React', 'Tailwind', 'Node.js', 'MongoDB'],
+      "A web app for ordering food online with a user-friendly interface. Browse menus, customize orders, and track deliveries in real-time.",
+    image:
+      "https://res.cloudinary.com/dmdzyoslx/image/upload/v1762781630/avatars/f3ea74c9-41bc-4a81-88a3-566eb383d8cb.png",
+    tags: ["React", "Tailwind", "Node.js", "MongoDB"],
     qa: [
-      { q: 'Role', a: 'Frontend & integration' },
-      { q: 'Duration', a: '6 weeks' },
-      { q: 'Tech', a: 'React, Tailwind, Node.js, MongoDB' },
-      { q: 'Note', a: 'Currently, registered and logged in is only available for users role. Admin account: superadmin@gmail.com / Password: 123456 to access admin features.' },
+      { q: "Role", a: "Frontend & integration" },
+      { q: "Duration", a: "6 weeks" },
+      { q: "Tech", a: "React, Tailwind, Node.js, MongoDB" },
+      {
+        q: "Note",
+        a: "Currently, registered and logged in is only available for users role. Admin account: superadmin@gmail.com / Password: 123456 to access admin features.",
+      },
     ],
     links: {
-      live: 'https://final-tester-frontend.vercel.app',
-      github: 'https://github.com/TrieuDang93710/final-tester-frontend.git',
+      live: "https://final-tester-frontend.vercel.app",
+      github: "https://github.com/TrieuDang93710/final-tester-frontend.git",
     },
   },
   {
-    title: 'Searching system Project',
-    category: 'Featured Project - Web App',
+    title: "Searching system Project",
+    category: "Featured Project - Web App",
     description:
-      'A web app for searching and managing job listings. Users can search for jobs, apply filters, and view detailed job descriptions.',
-    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1762782128/avatars/aaa3b5fc-9720-4539-aa3f-a93ce7d40684.png',
-    tags: ['Next.js', 'Nest.js', 'TypeScript', 'PostgreSQL'],
+      "A web app for searching and managing job listings. Users can search for jobs, apply filters, and view detailed job descriptions.",
+    image:
+      "https://res.cloudinary.com/dmdzyoslx/image/upload/v1762782128/avatars/aaa3b5fc-9720-4539-aa3f-a93ce7d40684.png",
+    tags: ["Next.js", "Nest.js", "TypeScript", "PostgreSQL"],
     qa: [
-      { q: 'Role', a: 'Full-stack developer' },
-      { q: 'Duration', a: '8 weeks' },
-      { q: 'Tech', a: 'Next.js, Nest.js, TypeScript, PostgreSQL' },
+      { q: "Role", a: "Full-stack developer" },
+      { q: "Duration", a: "8 weeks" },
+      { q: "Tech", a: "Next.js, Nest.js, TypeScript, PostgreSQL" },
     ],
     links: {
-      live: 'https://jobs-searching-system.vercel.app',
-      github: 'https://github.com/TrieuDang93710/room-manager-system.git',
+      live: "https://jobs-searching-system.vercel.app",
+      github: "https://github.com/TrieuDang93710/room-manager-system.git",
     },
   },
   {
-    title: 'Ecommerce Project',
-    category: 'Featured Project - Web App',
+    title: "Ecommerce Project",
+    category: "Featured Project - Web App",
     description:
-      'A mobile eCommerce app that offers a seamless shopping experience. Browse products, add to cart, and checkout with ease.',
-    image: 'https://res.cloudinary.com/dmdzyoslx/image/upload/v1764422837/my_images/vwigujqjoc1dp5zmaqvx.png',
-    tags: ['ReactJs', 'Node.js', 'MongoDB', 'Docker'],
+      "A mobile eCommerce app that offers a seamless shopping experience. Browse products, add to cart, and checkout with ease.",
+    image:
+      "https://res.cloudinary.com/dmdzyoslx/image/upload/v1764422837/my_images/vwigujqjoc1dp5zmaqvx.png",
+    tags: ["ReactJs", "Node.js", "MongoDB", "Docker"],
     links: {
-      live: 'https://problem5-v1-0-0-1.onrender.com',
-      github: 'https://github.com/trieudb3317dev/DANGBINHTRIEU/tree/main/problem_5',
+      live: "https://problem5-v1-0-0-1.onrender.com",
+      github:
+        "https://github.com/trieudb3317dev/DANGBINHTRIEU/tree/main/problem_5",
     },
   },
 ];
 
 export function Projects() {
   const [openMap, setOpenMap] = useState<Record<number, number | null>>({});
+  const [selectedLive, setSelectedLive] = useState<Record<number, string>>({});
 
   const toggleQA = (projectIndex: number, qaIndex: number) => {
     setOpenMap((prev) => {
@@ -96,22 +124,22 @@ export function Projects() {
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Image */}
-              <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+              <div className={index % 2 === 1 ? "md:order-2" : ""}>
                 <div className="bg-white dark:bg-slate-700 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
                   <div
                     style={{
                       backgroundImage: `url(${project.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
                     }}
-                    className="w-full aspect-video bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-6xl">
-                  </div>
+                    className="w-full aspect-video bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-6xl"
+                  ></div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className={index % 2 === 1 ? 'md:order-1' : ''}>
+              <div className={index % 2 === 1 ? "md:order-1" : ""}>
                 <p className="text-emerald-600 dark:text-emerald-400 font-semibold mb-3">
                   {project.category}
                 </p>
@@ -143,8 +171,9 @@ export function Projects() {
                               </p>
                             </div>
                             <ChevronDown
-                              className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
-                                }`}
+                              className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-200 ${
+                                isOpen ? "rotate-180" : ""
+                              }`}
                             />
                           </button>
 
@@ -174,14 +203,69 @@ export function Projects() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4">
-                  <a
-                    href={project.links.live}
-                    className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Visit
-                  </a>
+                <div className="flex gap-4 items-center">
+                  {(() => {
+                    const liveLinks = (project.links.live || "")
+                      .split(",")
+                      .map((s) => s.trim())
+                      .filter(Boolean);
+
+                    if (liveLinks.length === 0) {
+                      return (
+                        <p className="flex items-center gap-2 px-4 py-2 bg-gray-400 text-white rounded-lg transition-colors opacity-50">
+                          No demo available
+                        </p>
+                      );
+                    }
+
+                    if (liveLinks.length === 1) {
+                      return (
+                        <a
+                          href={liveLinks[0]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Visit
+                        </a>
+                      );
+                    }
+
+                    // multiple links: show select + Visit button
+                    const selected = selectedLive[index] ?? liveLinks[0];
+                    return (
+                      <div className="flex items-center gap-3">
+                        <select
+                          value={selected}
+                          onChange={(e) =>
+                            setSelectedLive((prev) => ({
+                              ...prev,
+                              [index]: e.target.value,
+                            }))
+                          }
+                          className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md px-3 py-2 text-sm"
+                        >
+                          {liveLinks.map((link, i) => (
+                            <option key={i} value={link}>
+                              {link}
+                            </option>
+                          ))}
+                        </select>
+
+                        <a
+                          href={selected}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Visit
+                        </a>
+                      </div>
+                    );
+                  })()}
+
                   <a
                     href={project.links.github}
                     className="flex items-center gap-2 px-4 py-2 border border-emerald-600 text-emerald-600 hover:bg-emerald-600/10 rounded-lg transition-colors dark:border-emerald-400 dark:text-emerald-400"
