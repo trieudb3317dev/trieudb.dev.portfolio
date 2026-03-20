@@ -7,6 +7,37 @@ import { useState } from "react";
 
 const projects = [
   {
+    title: "Chat Application with websocket real-time communication",
+    category: "Featured Project - Communication App",
+    description:
+      "A real-time chat application that enables users to communicate instantly. It features user authentication, private and group chats, and supports multimedia messages.",
+    image:
+      "https://res.cloudinary.com/dmdzyoslx/image/upload/v1774019850/my_images/u7pbwta7ekff7thiie0q.png",
+    tags: [
+      "Next.js",
+      "Tailwind",
+      "FastAPI",
+      "PostgreSQL",
+      "Python"
+    ],
+    qa: [
+      { q: "Role", a: "Full-stack developer" },
+      { q: "Duration", a: "4 weeks" },
+      {
+        q: "Tech",
+        a: "Next.js, Tailwind, FastAPI, PostgreSQL, Python",
+      },
+      {
+        q: "Description",
+        a: "This project includes: authentication system with JWT, real-time chat using WebSocket, private and group chat functionality, multimedia message support, and an admin dashboard for managing users and content. The backend is built with FastAPI, providing a robust API for handling authentication, chat messages, and user management. The frontend is developed using Next.js and Tailwind CSS, offering a responsive and user-friendly interface for seamless communication.",
+      }
+    ],
+    links: {
+      live: "https://chat-web-app-ashy.vercel.app",
+      github: "https://github.com/trieudb3317dev/chat-web-app.git",
+    },
+  },
+  {
     title: "Recipe Sharing Platform",
     category: "Featured Project - Recipe Sharing",
     description:
@@ -35,7 +66,7 @@ const projects = [
       {
         q: "Note",
         a: "Currently, registered and logged in is only available for users role and admin or editor role. Super Admin account: trieudb3317.dev / Password: 123456 to access super admin features.",
-      }
+      },
     ],
     links: {
       live: "https://sign-in-up-psi.vercel.app,https://instruction-sharing-recipes.up.railway.app",
