@@ -1,0 +1,508 @@
+# Full-Stack Developer Portfolio
+
+A modern, full-stack developer portfolio platform designed to showcase professional information, technical skills, work experience, projects, and contact information. The platform includes two separate modes: **Viewer Mode** for public visitors and **Admin Mode** for managing portfolio content.
+
+The application is built with **Next.js and NestJS**, backed by **PostgreSQL**, and designed with a cloud-friendly architecture so all components can be deployed using free-tier cloud services during development and personal use.
+
+## Core Features
+
+### 1. Viewer Mode
+
+Public visitors can explore the developer's portfolio without authentication.
+
+#### About Me
+
+* Professional introduction
+* Personal profile
+* Career objective
+* Developer biography
+* Social media and professional links
+
+#### Work Experience
+
+* Company information
+* Job position
+* Employment period
+* Responsibilities
+* Achievements
+* Technologies used
+
+#### Skills
+
+* Programming languages
+* Frontend technologies
+* Backend technologies
+* Databases
+* DevOps and cloud technologies
+* Tools and development platforms
+* Skill categories and proficiency levels
+
+#### Projects
+
+* Project overview
+* Project screenshots
+* Project description
+* Technologies used
+* Key features
+* GitHub repository
+* Live demo
+* Project status
+* Project categories/tags
+
+#### Contact
+
+* Contact form
+* Name
+* Email
+* Message
+* Social/contact links
+* Email notification
+
+#### Additional Sections
+
+* Education
+* Certifications
+* Achievements
+* Services
+* Blog/articles
+* Resume/CV download
+* GitHub activity
+* Featured projects
+
+---
+
+# 2. Admin Mode
+
+Authenticated administrators can manage portfolio content through an administration dashboard.
+
+### Dashboard
+
+* Portfolio statistics
+* Number of projects
+* Number of skills
+* Work experience count
+* Contact/message statistics
+* Recent activity
+
+### Project Management
+
+Full CRUD functionality:
+
+* Create projects
+* View projects
+* Update projects
+* Delete projects
+* Publish/unpublish projects
+* Mark projects as featured
+* Upload project images
+* Add technology stacks
+* Add GitHub repository
+* Add live demo URL
+* Manage project categories
+* Manage project tags
+* Reorder projects
+
+### Work Experience Management
+
+* Create experience
+* Update experience
+* Delete experience
+* Set company
+* Set position
+* Set start/end dates
+* Add responsibilities
+* Add achievements
+* Associate technologies
+
+### Skill Management
+
+* Create skills
+* Update skills
+* Delete skills
+* Create skill categories
+* Set proficiency level
+* Reorder skills
+
+### About/Profile Management
+
+Admin can update:
+
+* Name
+* Profile image
+* Biography
+* Introduction
+* Career objective
+* Location
+* Social links
+* GitHub
+* LinkedIn
+* Email
+* Resume/CV
+
+### Contact Management
+
+Admin can:
+
+* View messages
+* Mark messages as read/unread
+* Reply/contact users
+* Delete messages
+* Search messages
+* Filter messages
+
+### Authentication & Authorization
+
+* Admin login
+* JWT authentication
+* Refresh token
+* Secure HTTP-only cookies
+* Password hashing
+* Protected API routes
+* Role-based authorization
+* Admin-only dashboard
+
+---
+
+# 3. Architecture
+
+```text
+                    ┌─────────────────────┐
+                    │      Visitors       │
+                    │    Viewer Mode      │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │      Next.js        │
+                    │     Frontend        │
+                    └──────────┬──────────┘
+                               │
+                         REST / WebSocket
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │      NestJS         │
+                    │      Backend        │
+                    │                     │
+                    │ Auth / API / CRUD   │
+                    │ WebSocket / Upload  │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     PostgreSQL      │
+                    │      Database       │
+                    └─────────────────────┘
+```
+
+---
+
+# 4. Technology Stack
+
+## Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* React Query / TanStack Query
+* Zustand or Context API
+* Socket.IO Client
+* Form validation
+
+## Backend
+
+* NestJS
+* TypeScript
+* RESTful API
+* Socket.IO
+* JWT Authentication
+* Role-based Authorization
+* Validation
+* Guards
+* Interceptors
+* Exception Filters
+
+## Database
+
+* PostgreSQL
+* TypeORM or Prisma
+* Database migrations
+* Relational data modeling
+
+## Authentication
+
+* Access Token
+* Refresh Token
+* HTTP-only Cookies
+* Password hashing
+* JWT
+* RBAC
+
+## Storage
+
+For project images and profile assets:
+
+* Cloudinary
+* Cloudflare R2
+* Supabase Storage
+* S3-compatible storage
+
+The application should avoid storing large image files directly inside PostgreSQL.
+
+---
+
+# 5. Suggested Database Structure
+
+```text
+users
+ ├── id
+ ├── email
+ ├── password
+ ├── role
+ ├── created_at
+ └── updated_at
+
+profiles
+ ├── id
+ ├── name
+ ├── bio
+ ├── avatar
+ ├── location
+ ├── email
+ └── resume_url
+
+experiences
+ ├── id
+ ├── company
+ ├── position
+ ├── description
+ ├── start_date
+ ├── end_date
+ └── created_at
+
+skills
+ ├── id
+ ├── name
+ ├── category
+ ├── level
+ └── order
+
+projects
+ ├── id
+ ├── title
+ ├── slug
+ ├── description
+ ├── thumbnail
+ ├── github_url
+ ├── demo_url
+ ├── featured
+ ├── status
+ └── created_at
+
+project_technologies
+ ├── project_id
+ └── technology_id
+
+technologies
+ ├── id
+ ├── name
+ └── icon
+
+education
+ ├── id
+ ├── institution
+ ├── degree
+ ├── start_date
+ └── end_date
+
+contacts
+ ├── id
+ ├── name
+ ├── email
+ ├── message
+ ├── status
+ └── created_at
+```
+
+---
+
+# 6. Admin Dashboard
+
+The admin interface should provide a centralized dashboard:
+
+```text
+Admin Dashboard
+
+├── Overview
+├── Profile
+├── Projects
+│   ├── All Projects
+│   ├── Create Project
+│   └── Categories
+├── Experience
+├── Skills
+├── Education
+├── Certifications
+├── Messages
+├── Media
+└── Settings
+```
+
+The admin should be able to manage the portfolio without modifying the source code.
+
+---
+
+# 7. API Design
+
+Example REST API:
+
+```text
+POST   /api/v1/auth/login
+POST   /api/v1/auth/refresh
+POST   /api/v1/auth/logout
+
+GET    /api/v1/profile
+PATCH  /api/v1/profile
+
+GET    /api/v1/projects
+GET    /api/v1/projects/:id
+POST   /api/v1/projects
+PATCH  /api/v1/projects/:id
+DELETE /api/v1/projects/:id
+
+GET    /api/v1/experiences
+POST   /api/v1/experiences
+PATCH  /api/v1/experiences/:id
+DELETE /api/v1/experiences/:id
+
+GET    /api/v1/skills
+POST   /api/v1/skills
+PATCH  /api/v1/skills/:id
+DELETE /api/v1/skills/:id
+
+POST   /api/v1/contacts
+GET    /api/v1/contacts
+PATCH  /api/v1/contacts/:id
+DELETE /api/v1/contacts/:id
+```
+
+Public endpoints can be separated from protected admin endpoints:
+
+```text
+/api/v1/public/*
+/api/v1/admin/*
+```
+
+---
+
+# 8. Cloud-Friendly Deployment
+
+The project should be designed so each component can use free-tier services.
+
+```text
+                ┌───────────────────┐
+                │      Vercel       │
+                │     Next.js       │
+                └─────────┬─────────┘
+                          │
+                          ▼
+                ┌───────────────────┐
+                │      Vercel       │
+                │      NestJS       │
+                └──────┬─────┬──────┘
+                       │     │
+                       ▼     ▼
+                PostgreSQL   Redis
+                       │
+                       ▼
+                Neon / Supabase
+```
+
+Possible free-tier services:
+
+| Component      | Service                    |
+| -------------- | -------------------------- |
+| Next.js        | Vercel                     |
+| NestJS         | Vercel / Render / Koyeb    |
+| PostgreSQL     | Neon / Supabase            |
+| Redis          | Upstash                    |
+| Images         | Cloudinary / Cloudflare R2 |
+| Git Repository | GitHub                     |
+| Domain         | Free provider subdomain    |
+
+The architecture should remain **provider-independent**, allowing individual services to be replaced later without changing the entire application.
+
+---
+
+# 9. Responsive Design
+
+The portfolio should support:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+The public portfolio should prioritize a clean, modern developer-focused UI, while the admin dashboard should prioritize productivity and usability.
+
+---
+
+# 10. Security
+
+Security should be considered from the beginning:
+
+* HTTP-only authentication cookies
+* Secure cookies in production
+* JWT access/refresh token strategy
+* Password hashing
+* DTO validation
+* Authentication guards
+* Role-based authorization
+* CORS configuration
+* Rate limiting
+* Request validation
+* SQL injection protection through ORM
+* File upload validation
+* File size restrictions
+* Secure environment variables
+* API error handling
+* Logging and monitoring
+
+---
+
+# 11. Optional Advanced Features
+
+Future versions can include:
+
+* Real-time notifications with Socket.IO
+* Visitor analytics
+* GitHub API integration
+* GitHub contribution graph
+* Automatic project synchronization
+* Markdown project descriptions
+* Rich text editor
+* Drag-and-drop project ordering
+* Image optimization
+* Dark/light theme
+* Multi-language support
+* SEO management
+* Open Graph metadata
+* Sitemap generation
+* RSS feed
+* Blog management
+* Resume generator
+* Contact email notifications
+* Admin activity logs
+
+---
+
+# Project Goal
+
+The goal is to build more than a traditional portfolio website. It is a **full-stack portfolio CMS** where the public website acts as the presentation layer and the admin dashboard acts as a content management system.
+
+The project demonstrates practical experience with:
+
+**Next.js + React + TypeScript + NestJS + REST API + WebSocket/Socket.IO + PostgreSQL + Authentication + CRUD + Cloud Deployment + Database Design + API Architecture.**
+
+This makes the project suitable not only as a personal portfolio but also as a strong demonstration of full-stack development, backend architecture, authentication, database management, and cloud deployment skills.

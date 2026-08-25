@@ -1,0 +1,10 @@
+{
+  "description": "Showcase your UX design skills with a personalized portfolio featuring case study previews and a bio section to attract potential clients and employers.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
